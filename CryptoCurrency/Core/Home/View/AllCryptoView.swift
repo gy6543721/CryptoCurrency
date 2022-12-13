@@ -13,14 +13,14 @@ struct AllCryptoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             // Title
-            Text("All Cryptos")
+            Text("All")
                 .font(.title2)
                 .fontWeight(.bold)
             // ItemInfo
             HStack (spacing: 2) {
-                Text("Cryptos")
+                Text("Coin")
                 Spacer()
-                Text("Prices")
+                Text("Price")
             }
             .font(.caption)
             .foregroundColor(.gray)

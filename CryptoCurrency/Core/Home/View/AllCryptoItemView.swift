@@ -17,12 +17,13 @@ struct AllCryptoItemView: View {
             Text("\(coin.marketCapRank.formatted(.number))")
                 .foregroundColor(.gray)
                 .font(.caption)
+                .frame(width: 25, height: 25)
             
             // Icon
             KFImage(URL(string: coin.image))
                 .resizable()
                 .scaledToFit()
-                .frame(width: 12, height: 12)
+                .frame(width: 25, height: 25)
                 .foregroundColor(.orange)
             
             // Info
@@ -42,13 +43,13 @@ struct AllCryptoItemView: View {
             
             // Price
             VStack(alignment: .trailing, spacing: 4) {
-                Text("$\(coin.currentPrice)")
+                Text(coin.currentPrice.toCurrency())
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .padding(.leading, 4)
-                Text("\(coin.priceChangePercentage24H.formatted(.percent))")
+                Text(coin.priceChangePercentage24H > 0 ? "+"+coin.priceChangePercentage24H.toPercentage() : coin.priceChangePercentage24H.toPercentage())
                     .font(.caption)
-                    .foregroundColor(.green)
+                    .foregroundColor(coin.priceChangePercentage24H > 0 ? .green : .red)
                     .padding(.leading, 5)
             }
             .padding(.leading, 2)

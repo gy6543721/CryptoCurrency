@@ -50,6 +50,6 @@ class HomeViewModel: ObservableObject {
         let topCrypto = coins.sorted (by: {
             $0.priceChangePercentage24H > $1.priceChangePercentage24H
         })
-        self.topCrypto = Array(topCrypto.prefix(50))
+        self.topCrypto = Array(topCrypto.prefix(20))
     }
 }

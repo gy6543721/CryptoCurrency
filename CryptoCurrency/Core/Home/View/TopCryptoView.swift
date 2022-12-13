@@ -13,14 +13,16 @@ struct TopCryptoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             // Title
-            Text("Top Cryptos")
+            Text("Top")
                 .font(.title2)
                 .fontWeight(.bold)
             // ItemView
-            ScrollView(.horizontal) {
-                HStack(spacing: 15) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
                     ForEach(viewModel.topCrypto) { crypto in
                         TopCryptoItemView(topCrypto: crypto)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 10)
                     }
                 }
             }
