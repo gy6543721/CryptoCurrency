@@ -1,6 +1,7 @@
 # CryptoCurrency
 Native iOS Application written in Swift.  
 Implement with MVVM structure and SwiftUI.  
+
 <br>
 <table>
 	<tr>
@@ -13,6 +14,7 @@ Implement with MVVM structure and SwiftUI.
 	</tr>
 <table>
 <br>
+
 # Main Libraries Used
 * Kingfisher
 
