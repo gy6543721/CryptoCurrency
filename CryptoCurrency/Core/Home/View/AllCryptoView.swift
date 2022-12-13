@@ -29,7 +29,12 @@ struct AllCryptoView: View {
             // ItemView
             VStack {
                 ForEach(viewModel.coins) { coin in
-                    AllCryptoItemView(coin: coin)
+                    NavigationLink {
+                        CryptoDetailView()
+                    } label: {
+                        AllCryptoItemView(coin: coin)
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
         }.padding()

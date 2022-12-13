@@ -20,6 +20,7 @@
 		04D65E582948734E00446BBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D65E572948734E00446BBF /* Assets.xcassets */; };
 		04D65E5C2948734E00446BBF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D65E5B2948734E00446BBF /* Preview Assets.xcassets */; };
 		04D65E6B2948751500446BBF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D65E6A2948751500446BBF /* HomeView.swift */; };
+		04F4D2BC29492BF200F461C9 /* CryptoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D2BB29492BF200F461C9 /* CryptoDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		04D65E592948734E00446BBF /* CryptoCurrency.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryptoCurrency.entitlements; sourceTree = "<group>"; };
 		04D65E5B2948734E00446BBF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04D65E6A2948751500446BBF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		04F4D2BB29492BF200F461C9 /* CryptoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 		04D5C5CC294904690035E7E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04F4D2BB29492BF200F461C9 /* CryptoDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				04D65E6B2948751500446BBF /* HomeView.swift in Sources */,
 				04AC704F2948A6E300BA3FAF /* TopCryptoView.swift in Sources */,
 				04AC70582948BE5100BA3FAF /* HomeViewModel.swift in Sources */,
+				04F4D2BC29492BF200F461C9 /* CryptoDetailView.swift in Sources */,
 				04AC70552948B05700BA3FAF /* AllCryptoItemView.swift in Sources */,
 				04D65E562948734D00446BBF /* ContentView.swift in Sources */,
 				04AC70512948A6FB00BA3FAF /* AllCryptoView.swift in Sources */,

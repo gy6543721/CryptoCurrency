@@ -20,9 +20,15 @@ struct TopCryptoView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
                     ForEach(viewModel.topCrypto) { crypto in
-                        TopCryptoItemView(topCrypto: crypto)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 10)
+                        
+                        NavigationLink {
+                            CryptoDetailView()
+                        } label: {
+                            TopCryptoItemView(topCrypto: crypto)
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 10)
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
             }
