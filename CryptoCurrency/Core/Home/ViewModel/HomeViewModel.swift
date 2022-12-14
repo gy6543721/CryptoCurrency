@@ -16,7 +16,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func fetchData() {
-        let cryptoURLString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=200&page=1&sparkline=true"
+        let cryptoURLString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true"
         
         guard let cryptoURL = URL(string: cryptoURLString) else { return }
         URLSession.shared.dataTask(with: cryptoURL) { [self] data, response, error in

@@ -21,7 +21,7 @@ struct Coin: Codable, Identifiable {
     let atl, atlChangePercentage: Double?
     let atlDate: String?
     let lastUpdated: String?
-    let sparklineIn7D: SparklineIn7D
+    let sparklineIn7D: SparklineIn7D?
 
     enum CodingKeys: String, CodingKey {
         case id, symbol, name, image

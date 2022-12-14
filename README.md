@@ -16,5 +16,6 @@ Implement with MVVM structure and SwiftUI.
 <br>
 
 # Main Libraries Used
+* SwiftUI
 * Kingfisher
 

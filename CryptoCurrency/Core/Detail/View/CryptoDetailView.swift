@@ -8,13 +8,32 @@
 import SwiftUI
 
 struct CryptoDetailView: View {
+    let viewModel: CryptoViewModel
+    
+    init(coinDetail: Coin) {
+        self.viewModel = CryptoViewModel(coin: coinDetail)
+    }
+    
     var body: some View {
-        Text("Detail")
+        NavigationView {
+            ScrollView {
+                // Chart
+                
+                // Overview
+                CryptoSessionView(model: viewModel.overviewSessionModel)
+                    .padding(.vertical)
+                
+                // Additional Details
+                CryptoSessionView(model: viewModel.additionalDetailModel)
+                    .padding(.vertical)
+            }
+            .navigationTitle(viewModel.getCoinName())
+        }
     }
 }
 
 struct CryptoDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CryptoDetailView()
+        CryptoDetailView(coinDetail: dev.coin)
     }
 }

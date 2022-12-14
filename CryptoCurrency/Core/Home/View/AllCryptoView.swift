@@ -30,7 +30,7 @@ struct AllCryptoView: View {
             VStack {
                 ForEach(viewModel.coins) { coin in
                     NavigationLink {
-                        CryptoDetailView()
+                        CryptoDetailView(coinDetail: coin)
                     } label: {
                         AllCryptoItemView(coin: coin)
                     }
