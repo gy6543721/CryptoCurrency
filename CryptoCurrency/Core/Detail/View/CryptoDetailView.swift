@@ -15,24 +15,24 @@ struct CryptoDetailView: View {
     }
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                // Chart
-                ChartView(viewModel: viewModel)
-                    .frame(height: 250)
-                    .padding(.vertical)
-                    .padding(.horizontal)
-                
-                // Overview
-                CryptoSectionView(model: viewModel.overviewInfoModel)
-                    .padding(.vertical)
-                
-                // Additional Details
-                CryptoSectionView(model: viewModel.additionalInfoModel)
-                    .padding(.vertical)
-            }
-            .navigationTitle(viewModel.getCoinName())
+        ScrollView(showsIndicators: false) {
+            // Chart
+            ChartView(viewModel: viewModel)
+                .frame(height: 250)
+                .padding(.vertical)
+                .padding(.horizontal)
+                .shadow(color: viewModel.getColorIndicator() ? .green : .red, radius: 10)
+                .shadow(color: viewModel.getColorIndicator() ? .green.opacity(0.5) : .red.opacity(0.5), radius: 10)
+            
+            // Overview
+            CryptoSectionView(model: viewModel.overviewInfoModel)
+                .padding(.vertical)
+            
+            // Additional Details
+            CryptoSectionView(model: viewModel.additionalInfoModel)
+                .padding(.vertical)
         }
+        .navigationTitle(viewModel.getCoinName())
     }
 }
 

@@ -18,6 +18,7 @@ class CryptoViewModel: ObservableObject {
     var maxPrice = 0.0
     var xAxisValue = [Date]()
     var yAxisValue = [Double]()
+    var colorLndicator = Bool(true)
     
     var overviewInfoModel: CryptoSectionModel {
         // Price status
@@ -26,7 +27,7 @@ class CryptoViewModel: ObservableObject {
         let priceStatus = CryptoDetailModel(title: "Current Price", value: price, percentageChange: pricePercentChange)
         
         // Market cap status
-        let marketCap = coinData.marketCap.formatted(.number).description
+        let marketCap = coinData.marketCap.toLargeNumber()
         let marketCapPercentage = coinData.priceChangePercentage24H
         let marketCapStatus = CryptoDetailModel(title: "Market Capitalization", value: marketCap, percentageChange: marketCapPercentage)
         
@@ -35,7 +36,7 @@ class CryptoViewModel: ObservableObject {
         let rankStatus = CryptoDetailModel(title: "Rank", value: rank, percentageChange: nil)
         
         // Volumn status
-        let volumn = coinData.totalVolume?.formatted(.number).description
+        let volumn = coinData.totalVolume?.toLargeNumber()
         let volumnStatus = CryptoDetailModel(title: "Volume", value: volumn ?? "n/a", percentageChange: nil)
         
         return CryptoSectionModel(title: "Overview", status: [priceStatus, marketCapStatus, rankStatus, volumnStatus])
@@ -56,7 +57,7 @@ class CryptoViewModel: ObservableObject {
         let priceChangeStatus = CryptoDetailModel(title: "24H Price Change", value: priceChange, percentageChange: pricePercentageChange)
         
         // 24H marketcap change status
-        let marketCapChange = coinData.marketCapChange24H?.formatted(.number).description
+        let marketCapChange = coinData.marketCapChange24H?.toLargeNumber()
         let marketCapPercentageChange = coinData.marketCapChangePercentage24H
         let marketCapChangeStatus = CryptoDetailModel(title: "24H Market Capitalization", value: marketCapChange ?? "n/a", percentageChange: marketCapPercentageChange)
         
@@ -72,12 +73,17 @@ class CryptoViewModel: ObservableObject {
         return self.coinData.name
     }
     
+    func getColorIndicator()-> Bool {
+        let chartPriceChange = (coinData.sparklineIn7D?.price.last ?? 0) - (coinData.sparklineIn7D?.price.first ?? 0)
+        return chartPriceChange > 0 ? true : false
+    }
+    
     func configureChartData() {
         guard let priceData = coinData.sparklineIn7D?.price else { return }
         var index = 0
         self.minPrice = priceData.min() ?? 0.0
         self.maxPrice = priceData.max() ?? 0.0
-        self.yAxisValue = [minPrice, (minPrice+maxPrice)/2 , maxPrice]
+        self.yAxisValue = [minPrice, ((minPrice+maxPrice)/2) , maxPrice]
         self.endDate = Date(dateString: coinData.lastUpdated ?? "")
         for price in priceData.reversed() {
             let date = endDate.addingTimeInterval(-1 * 60 * 60 * Double(index))
