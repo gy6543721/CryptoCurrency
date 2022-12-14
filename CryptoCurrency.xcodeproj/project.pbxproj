@@ -29,6 +29,9 @@
 		04F4D2C8294952D800F461C9 /* CryptoSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D2C7294952D800F461C9 /* CryptoSectionModel.swift */; };
 		04F4D2CA29495E6E00F461C9 /* CryptoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D2C929495E6E00F461C9 /* CryptoViewModel.swift */; };
 		04F4D2CC2949729300F461C9 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D2CB2949729300F461C9 /* ChartData.swift */; };
+		04F4D2CE294977CE00F461C9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D2CD294977CE00F461C9 /* Date.swift */; };
+		04F4D2D029497A8700F461C9 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D2CF29497A8700F461C9 /* ChartView.swift */; };
+		04F4D2D329497D1800F461C9 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 04F4D2D229497D1800F461C9 /* SwiftUICharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,8 @@
 		04F4D2C7294952D800F461C9 /* CryptoSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoSectionModel.swift; sourceTree = "<group>"; };
 		04F4D2C929495E6E00F461C9 /* CryptoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewModel.swift; sourceTree = "<group>"; };
 		04F4D2CB2949729300F461C9 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
+		04F4D2CD294977CE00F461C9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		04F4D2CF29497A8700F461C9 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D5C5C72948E0B90035E7E5 /* Kingfisher in Frameworks */,
+				04F4D2D329497D1800F461C9 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +98,7 @@
 				04F4D2BB29492BF200F461C9 /* CryptoDetailView.swift */,
 				04F4D2BD2949322B00F461C9 /* CryptoSectionView.swift */,
 				04F4D2BF2949334700F461C9 /* CryptoItemView.swift */,
+				04F4D2CF29497A8700F461C9 /* ChartView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -146,6 +153,7 @@
 		04D65E63294873CD00446BBF /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				04F4D2CD294977CE00F461C9 /* Date.swift */,
 				04D5C5C82948F2480035E7E5 /* Double.swift */,
 				04F4D2C32949390B00F461C9 /* DeveloperPreview.swift */,
 			);
@@ -228,6 +236,7 @@
 			name = CryptoCurrency;
 			packageProductDependencies = (
 				04D5C5C62948E0B90035E7E5 /* Kingfisher */,
+				04F4D2D229497D1800F461C9 /* SwiftUICharts */,
 			);
 			productName = CryptoCurrency;
 			productReference = 04D65E502948734D00446BBF /* CryptoCurrency.app */;
@@ -259,6 +268,7 @@
 			mainGroup = 04D65E472948734D00446BBF;
 			packageReferences = (
 				04D5C5C52948E0B90035E7E5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				04F4D2D129497D1800F461C9 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = 04D65E512948734D00446BBF /* Products */;
 			projectDirPath = "";
@@ -297,11 +307,13 @@
 				04AC70582948BE5100BA3FAF /* HomeViewModel.swift in Sources */,
 				04F4D2CC2949729300F461C9 /* ChartData.swift in Sources */,
 				04F4D2BC29492BF200F461C9 /* CryptoDetailView.swift in Sources */,
+				04F4D2CE294977CE00F461C9 /* Date.swift in Sources */,
 				04AC70552948B05700BA3FAF /* AllCryptoItemView.swift in Sources */,
 				04D65E562948734D00446BBF /* ContentView.swift in Sources */,
 				04AC70512948A6FB00BA3FAF /* AllCryptoView.swift in Sources */,
 				04F4D2C2294937D700F461C9 /* CryptoDetailModel.swift in Sources */,
 				04D5C5C92948F2480035E7E5 /* Double.swift in Sources */,
+				04F4D2D029497A8700F461C9 /* ChartView.swift in Sources */,
 				04F4D2C02949334700F461C9 /* CryptoItemView.swift in Sources */,
 				04D65E542948734D00446BBF /* CryptoCurrencyApp.swift in Sources */,
 				04F4D2CA29495E6E00F461C9 /* CryptoViewModel.swift in Sources */,
@@ -532,6 +544,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		04F4D2D129497D1800F461C9 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -539,6 +559,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 04D5C5C52948E0B90035E7E5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		04F4D2D229497D1800F461C9 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04F4D2D129497D1800F461C9 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

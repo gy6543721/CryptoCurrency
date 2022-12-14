@@ -8,25 +8,34 @@
 import Foundation
 
 class CryptoViewModel: ObservableObject {
-    private let coin: Coin
+    private let coinData: Coin
+    
+    // Chart Config
+    var chartData = [ChartData]()
+    var startDate = Date()
+    var endDate = Date()
+    var minPrice = 0.0
+    var maxPrice = 0.0
+    var xAxisValue = [Date]()
+    var yAxisValue = [Double]()
     
     var overviewInfoModel: CryptoSectionModel {
         // Price status
-        let price = coin.currentPrice.toCurrency()
-        let pricePercentChange = coin.priceChangePercentage24H
+        let price = coinData.currentPrice.toCurrency()
+        let pricePercentChange = coinData.priceChangePercentage24H
         let priceStatus = CryptoDetailModel(title: "Current Price", value: price, percentageChange: pricePercentChange)
         
         // Market cap status
-        let marketCap = coin.marketCap.formatted(.number).description
-        let marketCapPercentage = coin.priceChangePercentage24H
+        let marketCap = coinData.marketCap.formatted(.number).description
+        let marketCapPercentage = coinData.priceChangePercentage24H
         let marketCapStatus = CryptoDetailModel(title: "Market Capitalization", value: marketCap, percentageChange: marketCapPercentage)
         
         // Rank status
-        let rank = coin.marketCapRank.formatted(.number).description
+        let rank = coinData.marketCapRank.formatted(.number).description
         let rankStatus = CryptoDetailModel(title: "Rank", value: rank, percentageChange: nil)
         
         // Volumn status
-        let volumn = coin.totalVolume?.formatted(.number).description
+        let volumn = coinData.totalVolume?.formatted(.number).description
         let volumnStatus = CryptoDetailModel(title: "Volume", value: volumn ?? "n/a", percentageChange: nil)
         
         return CryptoSectionModel(title: "Overview", status: [priceStatus, marketCapStatus, rankStatus, volumnStatus])
@@ -34,31 +43,49 @@ class CryptoViewModel: ObservableObject {
     
     var additionalInfoModel: CryptoSectionModel {
         // 24H high status
-        let high = coin.high24H?.toCurrency() ?? "n/a"
+        let high = coinData.high24H?.toCurrency() ?? "n/a"
         let highStatus = CryptoDetailModel(title: "24H High", value: high, percentageChange: nil)
         
         // 24H low status
-        let low = coin.low24H?.toCurrency() ?? "n/a"
+        let low = coinData.low24H?.toCurrency() ?? "n/a"
         let lowStatus = CryptoDetailModel(title: "24H Low", value: low, percentageChange: nil)
         
         // 24H price change status
-        let priceChange = coin.priceChange24H.toCurrency()
-        let pricePercentageChange = coin.priceChangePercentage24H
+        let priceChange = coinData.priceChange24H.toCurrency()
+        let pricePercentageChange = coinData.priceChangePercentage24H
         let priceChangeStatus = CryptoDetailModel(title: "24H Price Change", value: priceChange, percentageChange: pricePercentageChange)
         
         // 24H marketcap change status
-        let marketCapChange = coin.marketCapChange24H?.formatted(.number).description
-        let marketCapPercentageChange = coin.marketCapChangePercentage24H
+        let marketCapChange = coinData.marketCapChange24H?.formatted(.number).description
+        let marketCapPercentageChange = coinData.marketCapChangePercentage24H
         let marketCapChangeStatus = CryptoDetailModel(title: "24H Market Capitalization", value: marketCapChange ?? "n/a", percentageChange: marketCapPercentageChange)
         
         return CryptoSectionModel(title: "Additional", status: [highStatus, lowStatus, priceChangeStatus, marketCapChangeStatus])
     }
     
     init(coin: Coin) {
-        self.coin = coin
+        self.coinData = coin
+        configureChartData()
     }
     
     func getCoinName()-> String {
-        return self.coin.name
+        return self.coinData.name
+    }
+    
+    func configureChartData() {
+        guard let priceData = coinData.sparklineIn7D?.price else { return }
+        var index = 0
+        self.minPrice = priceData.min() ?? 0.0
+        self.maxPrice = priceData.max() ?? 0.0
+        self.yAxisValue = [minPrice, (minPrice+maxPrice)/2 , maxPrice]
+        self.endDate = Date(dateString: coinData.lastUpdated ?? "")
+        for price in priceData.reversed() {
+            let date = endDate.addingTimeInterval(-1 * 60 * 60 * Double(index))
+            let chartDataItem = ChartData(date: date, value: price)
+            self.chartData.append(chartDataItem)
+            index += 1
+        }
+        self.startDate = endDate.addingTimeInterval(-1 * 60 * 60 * Double(index))
+        self.xAxisValue = [startDate, endDate]
     }
 }

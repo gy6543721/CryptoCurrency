@@ -18,6 +18,10 @@ struct CryptoDetailView: View {
         NavigationView {
             ScrollView {
                 // Chart
+                ChartView(viewModel: viewModel)
+                    .frame(height: 250)
+                    .padding(.vertical)
+                    .padding(.horizontal)
                 
                 // Overview
                 CryptoSectionView(model: viewModel.overviewInfoModel)
