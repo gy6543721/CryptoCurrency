@@ -10,6 +10,7 @@ import SwiftUI
 class HomeViewModel: ObservableObject {
     @Published var coins = [Coin]()
     @Published var topCrypto = [Coin]()
+    @Published var isLoading = true
     
     init() {
         fetchData()
@@ -22,6 +23,7 @@ class HomeViewModel: ObservableObject {
         URLSession.shared.dataTask(with: cryptoURL) { [self] data, response, error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
+                self.isLoading = false
                 return
             }
             
@@ -30,17 +32,19 @@ class HomeViewModel: ObservableObject {
             }
             
             guard let data = data else { return }
-            let dataString = String(data: data, encoding: .utf8)
-            print("Data: \(dataString ?? "No Data")")
+//            let dataString = String(data: data, encoding: .utf8)
+//            print("Data: \(dataString ?? "No Data")")
             
             do {
                 let coinData = try JSONDecoder().decode([Coin].self, from: data)
                 DispatchQueue.main.async {
                     self.coins = coinData
                     self.checkTopCrypto()
+                    self.isLoading = false
                 }
             } catch let error {
                 print("Error: \(error)")
+                self.isLoading = false
                 return
             }
         }.resume()

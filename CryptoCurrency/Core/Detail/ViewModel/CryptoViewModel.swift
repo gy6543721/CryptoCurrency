@@ -67,6 +67,8 @@ class CryptoViewModel: ObservableObject {
     init(coin: Coin) {
         self.coinData = coin
         configureChartData()
+        
+        print("DEBUG: Coin is \(self.getCoinName())")
     }
     
     func getCoinName()-> String {

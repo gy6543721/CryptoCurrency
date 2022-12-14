@@ -12,17 +12,23 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView(.vertical, showsIndicators: false) {
+            ZStack {
+                ScrollView(.vertical, showsIndicators: false) {
+                    
+                    // Top Crypto View
+                    TopCryptoView(viewModel: viewModel)
+                    
+                    Divider()
+                    
+                    // All Cryoto View
+                    AllCryptoView(viewModel: viewModel)
+                }
                 
-                // Top Crypto View
-                TopCryptoView(viewModel: viewModel)
+                if viewModel.isLoading {
+                    LoadingIndicator()
+                }
                 
-                Divider()
-                
-                // All Cryoto View
-                AllCryptoView(viewModel: viewModel)
-            }
-            .navigationTitle("Live Prices")
+            }.navigationTitle("Live Prices")
         }
     }
 }

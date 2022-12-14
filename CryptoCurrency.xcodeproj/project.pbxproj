@@ -32,6 +32,8 @@
 		04F4D2CE294977CE00F461C9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D2CD294977CE00F461C9 /* Date.swift */; };
 		04F4D2D029497A8700F461C9 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D2CF29497A8700F461C9 /* ChartView.swift */; };
 		04F4D2D329497D1800F461C9 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 04F4D2D229497D1800F461C9 /* SwiftUICharts */; };
+		04F4D2D52949A6E400F461C9 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D2D42949A6E400F461C9 /* LoadingIndicator.swift */; };
+		04F4D2D72949AAAD00F461C9 /* LazyPreloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4D2D62949AAAD00F461C9 /* LazyPreloadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		04F4D2CB2949729300F461C9 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		04F4D2CD294977CE00F461C9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		04F4D2CF29497A8700F461C9 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		04F4D2D42949A6E400F461C9 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		04F4D2D62949AAAD00F461C9 /* LazyPreloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyPreloadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 		04D65E62294873B200446BBF /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				04F4D2D42949A6E400F461C9 /* LoadingIndicator.swift */,
+				04F4D2D62949AAAD00F461C9 /* LazyPreloadView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -296,9 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F4D2D52949A6E400F461C9 /* LoadingIndicator.swift in Sources */,
 				04AC705A2948C49100BA3FAF /* Coin.swift in Sources */,
 				04AC70532948A73100BA3FAF /* TopCryptoItemView.swift in Sources */,
 				04F4D2BE2949322B00F461C9 /* CryptoSectionView.swift in Sources */,
+				04F4D2D72949AAAD00F461C9 /* LazyPreloadView.swift in Sources */,
 				04F4D2C629493D0E00F461C9 /* AdditionalDetailModel.swift in Sources */,
 				04D65E6B2948751500446BBF /* HomeView.swift in Sources */,
 				04AC704F2948A6E300BA3FAF /* TopCryptoView.swift in Sources */,

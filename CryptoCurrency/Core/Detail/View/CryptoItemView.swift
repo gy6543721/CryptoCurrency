@@ -23,7 +23,7 @@ struct CryptoItemView: View {
                         Image(systemName: "triangle.righthalf.filled")
                             .font(.caption)
                             .foregroundColor(.green)
-                        Text(percentageChange.toPercentage())
+                        Text("+"+percentageChange.toPercentage())
                             .font(.caption)
                             .foregroundColor(.green)
                     } else {

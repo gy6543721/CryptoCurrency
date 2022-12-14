@@ -22,7 +22,7 @@ struct TopCryptoView: View {
                     ForEach(viewModel.topCrypto) { crypto in
                         
                         NavigationLink {
-                            CryptoDetailView(coinDetail: crypto)
+                            LazyPreloadView(CryptoDetailView(coinDetail: crypto))
                         } label: {
                             TopCryptoItemView(topCrypto: crypto)
                                 .padding(.vertical, 10)
