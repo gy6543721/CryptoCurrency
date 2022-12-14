@@ -10,7 +10,7 @@ import Foundation
 class CryptoViewModel: ObservableObject {
     private let coin: Coin
     
-    var overviewSessionModel: CryptoSessionModel {
+    var overviewInfoModel: CryptoSectionModel {
         // Price status
         let price = coin.currentPrice.toCurrency()
         let pricePercentChange = coin.priceChangePercentage24H
@@ -29,10 +29,10 @@ class CryptoViewModel: ObservableObject {
         let volumn = coin.totalVolume?.formatted(.number).description
         let volumnStatus = CryptoDetailModel(title: "Volume", value: volumn ?? "n/a", percentageChange: nil)
         
-        return CryptoSessionModel(title: "Overview", status: [priceStatus, marketCapStatus, rankStatus, volumnStatus])
+        return CryptoSectionModel(title: "Overview", status: [priceStatus, marketCapStatus, rankStatus, volumnStatus])
     }
     
-    var additionalDetailModel: CryptoSessionModel {
+    var additionalInfoModel: CryptoSectionModel {
         // 24H high status
         let high = coin.high24H?.toCurrency() ?? "n/a"
         let highStatus = CryptoDetailModel(title: "24H High", value: high, percentageChange: nil)
@@ -51,7 +51,7 @@ class CryptoViewModel: ObservableObject {
         let marketCapPercentageChange = coin.marketCapChangePercentage24H
         let marketCapChangeStatus = CryptoDetailModel(title: "24H Market Capitalization", value: marketCapChange ?? "n/a", percentageChange: marketCapPercentageChange)
         
-        return CryptoSessionModel(title: "Additional", status: [highStatus, lowStatus, priceChangeStatus, marketCapChangeStatus])
+        return CryptoSectionModel(title: "Additional", status: [highStatus, lowStatus, priceChangeStatus, marketCapChangeStatus])
     }
     
     init(coin: Coin) {

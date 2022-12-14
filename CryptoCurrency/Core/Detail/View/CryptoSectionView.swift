@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct CryptoSessionView: View {
-    let model: CryptoSessionModel
+struct CryptoSectionView: View {
+    let model: CryptoSectionModel
     
     private let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -33,6 +33,6 @@ struct CryptoSessionView: View {
 
 struct OverviewView_Previews: PreviewProvider {
     static var previews: some View {
-        CryptoSessionView(model: dev.sessionModel)
+        CryptoSectionView(model: dev.sessionModel)
     }
 }

@@ -24,7 +24,7 @@ class DeveloperPreview {
     let status3 = CryptoDetailModel(title: "Rank", value: "$1", percentageChange: nil)
     let status4 = CryptoDetailModel(title: "Volumn", value: "$3678.9", percentageChange: nil)
     
-    let sessionModel = CryptoSessionModel(title: "Overview",
+    let sessionModel = CryptoSectionModel(title: "Overview",
                                             status:[CryptoDetailModel(title: "Current Price", value: "$210", percentageChange: 1.23),
                                                     CryptoDetailModel(title: "Market Capitalization", value: "$30", percentageChange: 1.26),
                                                     CryptoDetailModel(title: "Rank", value: "$1", percentageChange: nil),

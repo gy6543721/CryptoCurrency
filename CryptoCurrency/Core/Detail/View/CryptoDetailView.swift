@@ -20,11 +20,11 @@ struct CryptoDetailView: View {
                 // Chart
                 
                 // Overview
-                CryptoSessionView(model: viewModel.overviewSessionModel)
+                CryptoSectionView(model: viewModel.overviewInfoModel)
                     .padding(.vertical)
                 
                 // Additional Details
-                CryptoSessionView(model: viewModel.additionalDetailModel)
+                CryptoSectionView(model: viewModel.additionalInfoModel)
                     .padding(.vertical)
             }
             .navigationTitle(viewModel.getCoinName())

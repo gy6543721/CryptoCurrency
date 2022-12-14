@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CryptoSessionModel {
+struct CryptoSectionModel {
     let title: String
     let status: [CryptoDetailModel]
 }
