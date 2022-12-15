@@ -20,14 +20,14 @@ struct CryptoItemView: View {
             if let percentageChange = model.percentageChange {
                 HStack(spacing: 4) {
                     if percentageChange > 0 {
-                        Image(systemName: "triangle.righthalf.filled")
+                        Image(systemName: "arrowtriangle.up.fill")
                             .font(.caption)
                             .foregroundColor(.green)
                         Text("+"+percentageChange.toPercentage())
                             .font(.caption)
                             .foregroundColor(.green)
                     } else {
-                        Image(systemName: "triangle.lefthalf.filled")
+                        Image(systemName: "arrowtriangle.down.fill")
                             .font(.caption)
                             .foregroundColor(.red)
                         Text(percentageChange.toPercentage())
