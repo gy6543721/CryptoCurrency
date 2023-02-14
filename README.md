@@ -1,6 +1,7 @@
 # CryptoCurrency
 Native iOS Application written in Swift.  
 Implement with MVVM structure and SwiftUI.  
+[Demo Video](https://youtu.be/nIURbVgLh9M)  
 
 <br>
 <table>
