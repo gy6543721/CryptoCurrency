@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher.git",
       "state" : {
-        "revision" : "44e891bdb61426a95e31492a67c7c0dfad1f87c5",
-        "version" : "7.4.1"
+        "revision" : "b6f62758f21a8c03cd64f4009c037cfa580a256e",
+        "version" : "7.9.1"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/willdale/SwiftUICharts",
       "state" : {
-        "revision" : "9a71bffb72c35960c6836891ca1e13e089532991",
-        "version" : "2.10.1"
+        "revision" : "53a3a2f16730af6709283f83a9dc75a3dde252ff",
+        "version" : "2.10.2"
       }
     }
   ],
