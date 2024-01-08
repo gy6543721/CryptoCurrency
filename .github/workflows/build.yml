@@ -14,7 +14,5 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
-    - name: Install
-      run: pod install
     - name: Build
       run: xcodebuild build-for-testing -workspace CryptoCurrency.xcworkspace -scheme CryptoCurrency -destination 'platform=iOS Simulator,OS=latest,name=iPhone 15'
