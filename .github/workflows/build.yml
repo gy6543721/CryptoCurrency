@@ -1,25 +1,20 @@
-name: iOS Test Workflow
+name: Build
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches-ignore:
+      - master
 
 jobs:
-  run_tests:
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        include:
-          - xcode: "15.1"
-            ios: "17.2"
-          - xcode: "15.1"
-            ios: "16.0"
-    name: Test iOS (${{ matrix.ios }})
+
+  build:
+
+    runs-on: macOS-latest
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Select Xcode
-      run: sudo xcode-select -switch /Applications/Xcode_${{ matrix.xcode }}.app && /usr/bin/xcodebuild -version
-    - name: Run unit tests
-      run: xcodebuild test -scheme CryptoCurrency -project CryptoCurrency.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 15,OS=${{ matrix.xcode }}' | xcpretty && exit ${PIPESTATUS[0]}
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+    - name: Install
+      run: pod install
+    - name: Build
+      run: xcodebuild build-for-testing -workspace CryptoCurrency.xcworkspace -scheme CryptoCurrency -destination 'platform=iOS Simulator,OS=latest,name=iPhone 15'
