@@ -15,5 +15,9 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
-    - name: Build & Test
-      run: xcodebuild test -scheme CryptoCurrency -destination 'platform=iOS Simulator,OS=latest,name=iPhone 15'
+      
+    - name: Build
+      run: xcodebuild build -scheme CryptoCurrency -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
+      
+    - name: Run Tests
+      run: xcodebuild test -scheme CryptoCurrency -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15,OS=latest'
