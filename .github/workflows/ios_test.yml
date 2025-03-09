@@ -1,4 +1,4 @@
-name: iOS starter workflow
+name: iOS test workflow
 
 on:
   push:
@@ -16,10 +16,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Set Default Scheme
         run: |
-          scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
-          echo $default | cat >default
-          echo Using default scheme: $default
+            scheme_list=$(xcodebuild -list -json 2>&1)
+            if echo "$scheme_list" | grep -q "JSON"; then
+              default=$(echo $scheme_list | jq -r '.project.targets[0]')
+              echo $default | cat >default
+              echo Using default scheme: $default
+            else
+              echo "Error: xcodebuild did not return valid JSON"
+              echo "$scheme_list"
+              exit 1
+            fi
       - name: Build
         env:
           scheme: ${{ 'default' }}

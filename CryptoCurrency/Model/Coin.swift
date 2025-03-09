@@ -5,7 +5,7 @@
 //  Created by Macbook Air M1 on 2022/12/13.
 //
 
-struct Coin: Codable, Identifiable {
+struct Coin: Codable, Identifiable, Equatable {
     let id, symbol, name: String
     let image: String
     let currentPrice: Double
@@ -50,7 +50,7 @@ struct Coin: Codable, Identifiable {
     }
 }
 
-struct SparklineIn7D: Codable {
+struct SparklineIn7D: Codable, Equatable {
     let price: [Double]
 }
 

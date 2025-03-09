@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "CBC2E55F-9481-4382-B136-80CD3B9779EC",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "areLocalizationScreenshotsEnabled" : true,
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:CryptoCurrency.xcodeproj",
+      "identifier" : "04D65E4F2948734D00446BBF",
+      "name" : "CryptoCurrency"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:CryptoCurrency.xcodeproj",
+        "identifier" : "044974642D7DE04800F4F836",
+        "name" : "CryptoCurrencyTests"
+      }
+    }
+  ],
+  "version" : 1
+}
